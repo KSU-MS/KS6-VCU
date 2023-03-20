@@ -34,3 +34,23 @@ flowchart TD
     D --> E(run exit logic)
     E --> F(run exit logic)
     F --> B(Current State)
+
+    flowchart TD
+    A[State set to TRACTIVE_SYSTEM_NOT_ACTIVE] -->|Enter Entry logic| B(TRACTIVE_SYSTEM_NOT_ACTIVE)
+    
+        B --> C(Force MC Discharge)
+        C --> D(Set Dash LED Yellow)
+        D --> E(Dash LED Wipe)
+        E --> 
+
+    B --> |Break to Handle| F(Handle State TRACTIVE_SYSTEM_NOT_ACTIVE)
+        F --> G(Get max torque)
+        G --> H(Get max RPM)
+        H --> I(inverter kick 0)
+        I --> J(check if precharge is attempted)
+        J --> |Failure| K(set ACC_Ready to false)
+        J --> |sucuess| L(set ACC_Ready to True)
+
+        L(set ACC_Ready to True) --> M(check  if TS_active & Acc_ready)
+    M --> |sucuess| N(set state to TRACTIVE_SYSTEM_ACTIVE)
+    hec
