@@ -76,7 +76,6 @@ public:
     inline bool get_software_is_ok()       const { return (ecu_states & 0x40); }
     inline bool get_launch_ctrl_active()   const { return (ecu_states & 0x80); }
 
-    inline void set_ecu_states(const uint8_t states)         { ecu_states = states; }
     inline void set_state(const MCU_STATE state)             { ecu_states = (ecu_states & 0xF8) | (static_cast<uint8_t>(state)); }
     inline void set_inverter_powered(const bool powered)     { ecu_states = (ecu_states & 0xF7) | (powered  << 3); }
     inline void set_energy_meter_present(const bool present) { ecu_states = (ecu_states & 0xEF) | (present  << 4); }
