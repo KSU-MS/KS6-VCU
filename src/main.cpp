@@ -104,6 +104,7 @@ void loop()
 
     state_machine.handle_state_machine(mcu_status);
     Serial.println(static_cast<int>(mcu_status.get_state()));
+    //added to print state
     if (timer_can_update.check())
     {
         // Send Main Control Unit status message
