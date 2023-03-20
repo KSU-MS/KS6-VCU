@@ -27,6 +27,8 @@ below is a loose flow of the data and what handles what
 
 ```
 
+```mermaid
+
 flowchart TD
     A[Initalize State Machine] -->|Set State to startup| B(Current state)
     B --> C(Check If Current state == New state) -->|NEW = OLD| B(Current state)
@@ -53,4 +55,6 @@ flowchart TD
 
         L(set ACC_Ready to True) --> M(check  if TS_active & Acc_ready)
     M --> |sucuess| N(set state to TRACTIVE_SYSTEM_ACTIVE)
-    hec
+    
+
+```
